@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colours.Library", "Colours.Library\Colours.Library.csproj", "{2417AB61-8384-4AED-8075-85F1FE4B459E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colours.Library.Test", "Colours.Library.Test\Colours.Library.Test.csproj", "{31B10833-0E66-4C2F-A962-279363AF3399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2417AB61-8384-4AED-8075-85F1FE4B459E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2417AB61-8384-4AED-8075-85F1FE4B459E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2417AB61-8384-4AED-8075-85F1FE4B459E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2417AB61-8384-4AED-8075-85F1FE4B459E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B10833-0E66-4C2F-A962-279363AF3399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B10833-0E66-4C2F-A962-279363AF3399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B10833-0E66-4C2F-A962-279363AF3399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B10833-0E66-4C2F-A962-279363AF3399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
