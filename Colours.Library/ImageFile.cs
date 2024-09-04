@@ -1,7 +1,9 @@
 // class to represent a 2d image
 
-// third party:
 using Colours.Extensions;
+using Colours.Library.PixelTypes;
+
+// third party:
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SkiaSharp;
@@ -23,14 +25,16 @@ namespace Colours.Library
     {
         private Rgba[,] _buffer;
 
-        public ImageFile(Image<Rgba32> imagefile){
+        public ImageFile(Image<Rgba32> imagefile)
+        {
             int Height = imagefile.Height;
             int Width = imagefile.Width;
             _buffer = new Rgba[Height, Width];
             LoadPixelData(imagefile);
         }
-        
-        public ImageFile(SkiaSharp.SKBitmap imagefile){
+
+        public ImageFile(SkiaSharp.SKBitmap imagefile)
+        {
             int Height = imagefile.Height;
             int Width = imagefile.Width;
             _buffer = new Rgba[Height, Width];
@@ -47,11 +51,14 @@ namespace Colours.Library
             get => _buffer.GetLength(1);
         }
 
-        public ref Rgba GetPixel(int x, int y){
-            if(x > Height){
+        public ref Rgba GetPixel(int x, int y)
+        {
+            if (x > Height)
+            {
                 throw new ImageFileException($"{x} is greater than height ({Height})");
             }
-            if(y > Width){
+            if (y > Width)
+            {
                 throw new ImageFileException($"{y} is greater than Width ({Width})");
             }
             return ref _buffer[x, y];
@@ -80,12 +87,14 @@ namespace Colours.Library
         private void LoadPixelData(SkiaSharp.SKBitmap imagefile)
         {
             // procedure to load the entire pixel data from a SKBitmap onto our array
-            for(int x = 0; x < imagefile.Height; x++){
-                for(int y = 0; y < imagefile.Width; y++){
-                    this._buffer[x, y] = imagefile.GetPixel(x, y).ToColoursRgba(); 
+            for (int x = 0; x < imagefile.Height; x++)
+            {
+                for (int y = 0; y < imagefile.Width; y++)
+                {
+                    this._buffer[x, y] = imagefile.GetPixel(x, y).ToColoursRgba();
                 }
             }
         }
-        
+
     }
 }

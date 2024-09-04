@@ -1,6 +1,7 @@
 // A class to represent the histogram method for colour quantisation
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using Colours.Extensions;
 using SixLabors.ImageSharp;
@@ -14,9 +15,13 @@ namespace Colours.Library
     using ColourType = System.UInt32;
     using CountType = System.UInt128;
 
-    public class Histogram: IQuantiser
+    public class Histogram : IQuantiser
     {
         private Dictionary<ColourType, CountType> _lut;
+        private HashSet<ColourType>? colours;
+        private List<ColourType>? orderedColours;
+        // cache indiciating if the method has ran through a process
+        bool Processed { get; set; }
 
         public Histogram()
         {
@@ -46,16 +51,19 @@ namespace Colours.Library
                             _lut[colour]++;
                         }
                     }
-                        
+
                 }
             });
+            Processed = true;
         }
 
         public void Quantise(SKBitmap image)
         {
             Console.WriteLine("quantising the skbitmap");
-            for(int x = 0; x < image.Height; x++){
-                for(int y = 0; y < image.Width; y++){
+            for (int x = 0; x < image.Height; x++)
+            {
+                for (int y = 0; y < image.Width; y++)
+                {
                     ColourType colour = image.GetPixel(x, y).ToUint32();
                     //Console.WriteLine($"{colour:X8}");
                     if (!_lut.ContainsKey(colour))
@@ -70,10 +78,21 @@ namespace Colours.Library
             }
         }
 
-        public  HashSet<ColourType> GetColours()
+        public HashSet<ColourType> GetColours()
         {
             HashSet<ColourType> colorset = new(_lut.Keys);
             return colorset;
+        }
+
+        public List<ColourType> GetTopColours(int top)
+        {
+            var ordered = _lut.OrderByDescending(kv => kv.Value);
+            List<ColourType> topColors = new(top);
+            foreach (var kv in ordered)
+            {
+                topColors.Add(kv.Key);
+            }
+            return topColors.Take(top).ToList();
         }
 
         public void PrintColours()
@@ -90,5 +109,4 @@ namespace Colours.Library
             Console.WriteLine($"{_lut.Max(element => element.Key):X8}");
         }
     }
-
 }

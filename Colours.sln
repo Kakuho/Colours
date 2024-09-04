@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colours.Library.Test", "Col
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colours.Api", "Colours.Api\Colours.Api.csproj", "{BFFFD817-2361-4745-85ED-6114F8972138}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29DF4E03-A5DD-4426-BF5B-040E7E8C61D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFFFD817-2361-4745-85ED-6114F8972138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFFFD817-2361-4745-85ED-6114F8972138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFFFD817-2361-4745-85ED-6114F8972138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFFFD817-2361-4745-85ED-6114F8972138}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

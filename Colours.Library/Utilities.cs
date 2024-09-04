@@ -1,11 +1,13 @@
 // Global Utility Methods
+using Colours.Library.PixelTypes;
 
 namespace Colours.Library
 {
 
     static class Utilities
     {
-        public static System.UInt32 CreateIntegerFromComponent(byte red, byte green, byte blue, byte alpha){
+        public static System.UInt32 CreateIntegerFromComponent(byte red, byte green, byte blue, byte alpha)
+        {
             System.UInt32 integral = red;
             integral <<= 8;
             integral |= green;
@@ -13,15 +15,15 @@ namespace Colours.Library
             integral |= blue;
             integral <<= 8;
             integral |= alpha;
-            return integral; 
+            return integral;
         }
 
-        public static void RgbToHsl(Rgba src)
+        public static void RgbaToHsla(Rgba src)
         {
 
         }
 
-        public static void HslToRgba(Hsl src)
+        public static void HslaToRgba(Hsla src)
         {
 
         }
