@@ -5,10 +5,9 @@ using System.Collections.Generic;
 // third party
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace Colours.Library
+namespace Colours.Library.Quantisers
 {
     using ColourType = System.UInt32;
-
 
     interface IQuantiser
     {

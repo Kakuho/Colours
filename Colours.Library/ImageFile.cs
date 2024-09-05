@@ -8,20 +8,21 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SkiaSharp;
 
+
 namespace Colours.Library
 {
     // sane type aliases
     using uint32 = uint;
     using count_t = ulong;
 
-    class ImageFileException : Exception
+    public class ImageFileException : Exception
     {
         public ImageFileException(string message)
         {
         }
     }
 
-    public class ImageFile
+    public class ImageFile : IImageFile
     {
         private Rgba[,] _buffer;
 
@@ -40,6 +41,11 @@ namespace Colours.Library
             _buffer = new Rgba[Height, Width];
             LoadPixelData(imagefile);
         }
+        
+        public ImageFile(int height, int width)
+        {
+            _buffer = new Rgba[height, width];
+        }
 
         public int Height
         {
@@ -49,6 +55,11 @@ namespace Colours.Library
         public int Width
         {
             get => _buffer.GetLength(1);
+        }
+
+        public void Deconstruct(out int height, out int width){
+            height = this.Height;
+            width = this.Width;
         }
 
         public ref Rgba GetPixel(int x, int y)
@@ -64,7 +75,9 @@ namespace Colours.Library
             return ref _buffer[x, y];
         }
 
-        private void LoadPixelData(Image<Rgba32> imagefile)
+        // the methods below here are private and only accessible from the class
+    
+        private void LoadPixelData(SixLabors.ImageSharp.Image<Rgba32> imagefile)
         {
             // procedure  to load the entire pixel data from SixLabours to our file
             imagefile.ProcessPixelRows(accessor =>
@@ -95,6 +108,6 @@ namespace Colours.Library
                 }
             }
         }
-
     }
 }
+        

@@ -7,7 +7,7 @@ namespace Colours.Library.PixelTypes
     using uint8 = byte;
     using uint32 = uint;
 
-    public struct Rgba
+    public struct Rgba: IPixelType
     {
         public uint8 r;
         public uint8 g;
