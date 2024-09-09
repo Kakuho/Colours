@@ -28,5 +28,5 @@ namespace Colours.Library.Test
             Assert.Equal(a, ad);
         }
     }
-    
+
 }

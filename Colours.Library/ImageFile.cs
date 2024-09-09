@@ -41,7 +41,7 @@ namespace Colours.Library
             _buffer = new Rgba[Height, Width];
             LoadPixelData(imagefile);
         }
-        
+
         public ImageFile(int height, int width)
         {
             _buffer = new Rgba[height, width];
@@ -57,7 +57,8 @@ namespace Colours.Library
             get => _buffer.GetLength(1);
         }
 
-        public void Deconstruct(out int height, out int width){
+        public void Deconstruct(out int height, out int width)
+        {
             height = this.Height;
             width = this.Width;
         }
@@ -76,7 +77,7 @@ namespace Colours.Library
         }
 
         // the methods below here are private and only accessible from the class
-    
+
         private void LoadPixelData(SixLabors.ImageSharp.Image<Rgba32> imagefile)
         {
             // procedure  to load the entire pixel data from SixLabours to our file
@@ -110,4 +111,3 @@ namespace Colours.Library
         }
     }
 }
-        

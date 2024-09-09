@@ -13,20 +13,25 @@ namespace Colours.Library.Test
             Assert.Equal(10, height);
             Assert.Equal(22, width);
         }
-        
+
         [Fact]
         static public void CorrectlyThrowsException()
         {
-            try{
+            try
+            {
                 ImageFile image = new(10, 22);
                 image.GetPixel(0, 23);
-            } catch(ImageFileException e){
+            }
+            catch (ImageFileException e)
+            {
                 Assert.True(e is ImageFileException);
                 return;
-            } catch(Exception){
+            }
+            catch (Exception)
+            {
                 Assert.Fail("ImageFileException is not thrown");
             }
         }
     }
-    
+
 }

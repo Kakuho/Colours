@@ -7,21 +7,21 @@ namespace Colours.Library.PixelTypes
     using uint8 = byte;
     using uint32 = uint;
 
-    public struct Rgba: IPixelType
+    public struct Rgba : IPixelType
     {
-        public uint8 r;
-        public uint8 g;
-        public uint8 b;
-        public uint8 a;
+        public byte Red { get; set; }
+        public byte Green { get; set; }
+        public byte Blue { get; set; }
+        public byte Alpha { get; set; }
 
         // Constructors
 
-        public Rgba(uint8 r, uint8 g, uint8 b, uint8 a)
+        public Rgba(byte r, byte g, byte b, byte a)
         {
-            this.r = r;
-            this.g = g;
-            this.b = b;
-            this.a = a;
+            Red = r;
+            Green = g;
+            Blue = b;
+            Alpha = a;
         }
 
         public Rgba(System.UInt32 integral)
@@ -33,15 +33,20 @@ namespace Colours.Library.PixelTypes
 
         public System.UInt32 ToUInt32()
         {
-            return Utilities.CreateIntegerFromComponent(this.r, this.g, this.b, this.a);
+            return Utilities.CreateIntegerFromComponent(Red, Green, Blue, Alpha);
+        }
+
+        static public implicit operator uint(Rgba val)
+        {
+            return val.ToUInt32();
         }
 
         static public Rgba Convert32ToRgba(uint32 val)
         {
-            uint8 r = (byte)((val & (0xFF << 24)) >> 24);
-            uint8 g = (byte)((val & (0xFF << 16)) >> 16);
-            uint8 b = (byte)((val & (0xFF << 8)) >> 8);
-            uint8 a = (byte)(val & (0xFF));
+            byte r = (byte)((val & (0xFF << 24)) >> 24);
+            byte g = (byte)((val & (0xFF << 16)) >> 16);
+            byte b = (byte)((val & (0xFF << 8)) >> 8);
+            byte a = (byte)(val & (0xFF));
             return new(r, g, b, a);
         }
 
@@ -49,10 +54,11 @@ namespace Colours.Library.PixelTypes
 
         public void Deconstruct(out byte r, out byte g, out byte b, out byte a)
         {
-            r = this.r;
-            g = this.g;
-            b = this.b;
-            a = this.a;
+            r = Red;
+            g = Green;
+            b = Blue;
+            a = Alpha;
         }
+
     }
 }
